@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_02_172118) do
 
   create_table "likes", force: :cascade do |t|
     t.integer "count"
+    t.boolean "if_liked"
     t.integer "user_id"
     t.integer "pin_id"
     t.datetime "created_at", null: false
@@ -33,6 +34,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_02_172118) do
   create_table "pins", force: :cascade do |t|
     t.text "caption"
     t.string "image_url"
+    t.string "title"
+    t.string "category"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

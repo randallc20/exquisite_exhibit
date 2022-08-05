@@ -1,3 +1,4 @@
+require "pry"
 class ApplicationController < ActionController::API
   include ActionController::Cookies
 
@@ -6,7 +7,7 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
 
-  before_action :authorize
+  before_action :authorize, except: :index
 
   def hello_world
     session[:count] = (session[:count] || 0) + 1
@@ -16,6 +17,7 @@ class ApplicationController < ActionController::API
   private
 
   def authorize
+    # binding.pry
     @current_user = User.find_by(id: session[:user_id])
 
     unless @current_user

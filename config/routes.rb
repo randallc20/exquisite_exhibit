@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   # route to test your configuration
   get "/hello", to: "application#hello_world"
+  get "/users/:id/pins", to: "users#displayPins"
   # Defines the root path route ("/")
   # root "articles#index"
   # auth routes

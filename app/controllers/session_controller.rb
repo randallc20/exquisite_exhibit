@@ -6,9 +6,10 @@ class SessionController < ApplicationController
     user = User.find_by(username: params[:username])
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
+      # binding.pry
       render json: user
     else
-      binding.pry
+      # binding.pry
       render json: {
                errors: ["Invalid username or password"]
              },
@@ -17,6 +18,7 @@ class SessionController < ApplicationController
   end
 
   def destroy
+    # binding.pry
     session.delete :user_id
     head :no_content
   end

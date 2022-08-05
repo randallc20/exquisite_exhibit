@@ -13,7 +13,9 @@ Pin.create(
   caption: "the first post ever",
   image_url:
     "https://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg",
-  user_id: 1
+  user_id: 1,
+  title: "worlds smartest man",
+  category: "science"
 )
 
 puts "✅ Done seeding!"
